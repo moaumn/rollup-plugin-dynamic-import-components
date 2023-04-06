@@ -1,0 +1,23 @@
+{
+  "name": "rollup-plugin-dynamic-import-component",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.21.4",
+    "@babel/types": "^7.21.4",
+    "@rollup/pluginutils": "^5.0.2",
+    "@vue/compiler-sfc": "^3.2.47",
+    "ast-walker-scope": "^0.4.1",
+    "magic-string-ast": "^0.1.2"
+  }
+}
