@@ -2,6 +2,7 @@ import type {CallExpression, Node} from '@babel/types';
 import {MagicStringBase, MagicString} from 'magic-string-ast';
 import {parse, type ParserPlugin} from '@babel/parser';
 import {walkAST} from 'ast-walker-scope';
+import type {DynamicImportComponentOption} from "./index";
 export function isCallOf(
     node: Node | null | undefined,
     test: string | string[] | ((id: string) => boolean)
@@ -50,15 +51,23 @@ export function parseAst(code: string, lang: string = '') {
 export function transformAst(
     ast: Node | Node[],
     s: MagicString,
-    option: Record<string, (...args: string[]) => string>,
+    option: DynamicImportComponentOption,
     offset: number = 0
 ) {
     walkAST(ast, {
         enter(node) {
-            if (isCallOf(node, 'dynamicImport')) {
-                const [type, ...args] = node.arguments.map(node => node.value);
+            if (isCallOf(node, 'dynamicImportComponent')) {
+                const [type, ...args] = node.arguments.map(node => {
+                    if(node.type === 'StringLiteral'){
+                        return node.value;
+                    }else{
+                         throw new SyntaxError('dynamicImportComponent argument must be string literal');
+                    }
+                });
                 if (Reflect.has(option, type)) {
                     s.overwriteNode(node, option[type](...args), {offset});
+                }else{
+                    throw new Error(`dynamicImportComponent type "${type}" not found`);
                 }
             }
         },

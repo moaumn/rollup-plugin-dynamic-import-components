@@ -3,12 +3,35 @@
   "version": "0.1.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://github.com/moaumn/rollup-plugin-dynamic-import-component",
+  "author": "moaumn",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "tsup",
+    "test": "vitest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "tsup": {
+    "entry": [
+      "./src/index.ts"
+    ],
+    "sourceMap": true,
+    "dts": true,
+    "clean": true,
+    "format": [
+      "cjs",
+      "esm"
+    ]
+  },
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.js",
+      "type": "./dist/index.d.ts"
+    },
+    "./macro-global": "./dist/macro-global.d.ts"
+  },
+  "keywords": ["vue-macros", "dynamic-import"],
+  "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
   },
@@ -18,6 +41,13 @@
     "@rollup/pluginutils": "^5.0.2",
     "@vue/compiler-sfc": "^3.2.47",
     "ast-walker-scope": "^0.4.1",
-    "magic-string-ast": "^0.1.2"
+    "magic-string-ast": "^0.1.2",
+    "typescript": "^5.0.3"
+  },
+  "devDependencies": {
+    "fast-glob": "^3.2.12",
+    "rollup": "^3.20.2",
+    "tsup": "^6.7.0",
+    "vitest": "^0.29.8"
   }
 }

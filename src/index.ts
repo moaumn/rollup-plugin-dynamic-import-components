@@ -4,7 +4,8 @@ import {createFilter} from '@rollup/pluginutils';
 import {MagicString} from 'magic-string-ast';
 import {parse as parseSFC} from '@vue/compiler-sfc';
 
-export default function CreateDynamicImportComponentPlugin(option: Record<string, (...args: string[]) => string>) {
+export type DynamicImportComponentOption = Record<string, (...args: string[]) => string>;
+export default function CreateDynamicImportComponentPlugin(option: DynamicImportComponentOption) {
     const filter = createFilter([REGEX_TS_FILE, REGEX_SETUP_SFC, REGEX_VUE_SFC]);
     return {
         name: 'sort-dynamic-import',
@@ -15,7 +16,6 @@ export default function CreateDynamicImportComponentPlugin(option: Record<string
 
             const s = new MagicString(code);
             if (REGEX_VUE_SFC.test(id)) {
-                console.log(id);
                 const {descriptor} = parseSFC(code, {filename: id});
                 if (descriptor.scriptSetup) {
                     const setUpAst = parseAst(descriptor.scriptSetup.content, descriptor.scriptSetup.lang);

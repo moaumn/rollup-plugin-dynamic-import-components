@@ -1,0 +1,1 @@
+export const a: () => Promise<any> = dynamicImportComponent('com', 'import');
