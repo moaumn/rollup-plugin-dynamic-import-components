@@ -1,5 +1,6 @@
 # rollup-plugin-dynamic-import-component
 A Rollup plugin that dynamically imports Vue components.
+
 In Vue, when using the import function to dynamically load Vue components, the parameter can only be a string. This is because the Vue compiler needs to obtain the path of the component file at compile time to compile the component.
 
 vite.config.ts

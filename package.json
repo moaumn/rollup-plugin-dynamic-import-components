@@ -1,14 +1,18 @@
 {
   "name": "rollup-plugin-dynamic-import-component",
   "version": "0.1.0",
-  "description": "",
+  "description": "Dynamic import VUE component",
   "main": "index.js",
   "homepage": "https://github.com/moaumn/rollup-plugin-dynamic-import-component",
   "author": "moaumn",
+  "bugs": "kissrain8@qq.com",
   "scripts": {
     "build": "tsup",
     "test": "vitest"
   },
+  "files": [
+    "dist"
+  ],
   "tsup": {
     "entry": [
       "./src/index.ts"
