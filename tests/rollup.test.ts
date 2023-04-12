@@ -1,6 +1,6 @@
 import {describe, it, expect} from "vitest";
 import {rollup, Plugin} from "rollup";
-import CreateDynamicImportComponentPlugin from "../src";
+import CreateDynamicImportComponentsPlugin from "../src";
 import glob from 'fast-glob';
 
 export const RollupToStringPlugin = (): Plugin => {
@@ -14,7 +14,7 @@ describe('fixtures', () => {
         const bundle = await rollup({
             input: await glob('tests/fixtures/*.{vue,js,ts}'),
             plugins: [
-                CreateDynamicImportComponentPlugin({
+                CreateDynamicImportComponentsPlugin({
                     'com': (name: string) => {
                         return `() => import('/tests/fixtures/${name}.vue')`;
                     }

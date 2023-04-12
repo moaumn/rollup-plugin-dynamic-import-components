@@ -35,7 +35,10 @@
     },
     "./macro-global": "./dist/macro-global.d.ts"
   },
-  "keywords": ["vue-macros", "import-vue-components"],
+  "keywords": [
+    "vue-macros",
+    "import-vue-components"
+  ],
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
@@ -53,6 +56,7 @@
     "fast-glob": "^3.2.12",
     "rollup": "^3.20.2",
     "tsup": "^6.7.0",
+    "vite": "^4.2.1",
     "vitest": "^0.29.8"
   }
 }

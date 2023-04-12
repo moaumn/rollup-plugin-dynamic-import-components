@@ -56,7 +56,7 @@ export function transformAst(
 ) {
     walkAST(ast, {
         enter(node) {
-            if (isCallOf(node, 'dynamicImportComponent')) {
+            if (isCallOf(node, 'dynamicImportComponents')) {
                 const [type, ...args] = node.arguments.map(node => {
                     if(node.type === 'StringLiteral'){
                         return node.value;

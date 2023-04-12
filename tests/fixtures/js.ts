@@ -1,1 +1,1 @@
-export const a = dynamicImportComponent('com', 'import');
+export const a = dynamicImportComponents('com', 'import');
