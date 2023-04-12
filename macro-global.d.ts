@@ -1,5 +1,5 @@
-import {DynamicImportComponentOption} from "./src";
+import {DynamicImportComponentsOption} from "./src";
 
 declare global {
-    const dynamicImportComponent: (type: keyof DynamicImportComponentOption, ...args: string[]) => any
+    const dynamicImportComponents: (type: keyof DynamicImportComponentsOption, ...args: string[]) => any
 }

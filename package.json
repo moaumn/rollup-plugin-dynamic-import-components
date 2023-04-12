@@ -1,9 +1,9 @@
 {
-  "name": "rollup-plugin-dynamic-import-component",
+  "name": "rollup-plugin-dynamic-import-components",
   "version": "0.1.0",
-  "description": "Dynamic import VUE component",
+  "description": "Dynamic import VUE components",
   "main": "index.js",
-  "homepage": "https://github.com/moaumn/rollup-plugin-dynamic-import-component",
+  "homepage": "https://github.com/moaumn/rollup-plugin-dynamic-import-components",
   "author": "moaumn",
   "bugs": "kissrain8@qq.com",
   "scripts": {
@@ -35,7 +35,7 @@
     },
     "./macro-global": "./dist/macro-global.d.ts"
   },
-  "keywords": ["vue-macros", "dynamic-import"],
+  "keywords": ["vue-macros", "import-vue-components"],
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
